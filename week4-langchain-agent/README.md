@@ -16,7 +16,7 @@
 
 ## 配置与运行
 
-将本 README 和 requirements.txt 放到 main.py 所在目录。使用 Python 3.10 或兼容环境；当前练习使用 Python 3.10.11。
+从仓库根目录进入 `week4-langchain-agent` 后执行下列命令。使用 Python 3.10 或兼容环境；当前练习使用 Python 3.10.11。
 
 已有虚拟环境可以继续使用，无需重新安装。需要重建环境时，在项目目录中执行：
 

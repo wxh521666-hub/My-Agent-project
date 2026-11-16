@@ -1,133 +1,49 @@
-# Mini Agent V0.1
+# My Agent Project
 
-基于 Python 和 DeepSeek API 实现的最小 AI Agent，支持通过 Function Calling 自主选择并调用工具。
+Python AI Agent 学习项目，按学习阶段分别组织。两个项目各自包含代码、配置示例、依赖和使用说明。
 
-## 1. 项目功能
-
-- 自然语言交互
-- DeepSeek LLM API 调用
-- Calculator 数学计算工具
-- Weather 模拟天气查询工具
-- Function Calling 工具选择与执行
-- Agent Loop 多轮执行
-- Task State 与 Step State 状态管理
-- Max Steps 执行轮数限制
-- 基础异常处理
-- DEBUG 调试模式
-
-## 2. 项目结构
+| 项目 | 内容 | 使用说明 |
+| --- | --- | --- |
+| 第二周：原生 Agent | 手写模型与工具调用循环，计算器、模拟天气和运行时测试 | [week2-native-agent](week2-native-agent/README.md) |
+| 第四周：LangChain Agent | 模拟商品查价、小计与合计工具、工具异常中间件、连续对话 | [week4-langchain-agent](week4-langchain-agent/README.md) |
 
 ```text
-my_first_agent_turn_end/
-├── main.py
-├── config.py
-├── llm.py
-├── runtime.py
-├── tools/
-│   ├── __init__.py
-│   ├── calculator.py
-│   └── weather.py
-├── tests/
-│   ├── __init__.py
-│   ├── test_tools.py
-│   └── test_runtime.py
-├── .env
-├── .env.example
+My-Agent-project/
+├── README.md
 ├── .gitignore
-├── requirements.txt
-└── README.md
+├── week2-native-agent/
+│   ├── main.py
+│   ├── runtime.py
+│   ├── tools/
+│   ├── tests/
+│   ├── .env.example
+│   ├── requirements.txt
+│   └── README.md
+└── week4-langchain-agent/
+    ├── main.py
+    ├── agent.py
+    ├── tools.py
+    ├── middleware.py
+    ├── .env.example
+    ├── requirements.txt
+    └── README.md
 ```
 
-## 3. 安装依赖
+## 运行方式
 
-建议使用 Python 虚拟环境。
+先进入对应项目目录，按该目录的 README 配置 Python 环境和 `.env`，然后运行：
 
-```bash
-pip install -r requirements.txt
-```
-
-## 4. 环境变量配置
-
-复制 `.env.example` 为 `.env`，并填写自己的 API Key。
-
-```dotenv
-API_KEY=your_api_key_here
-BASE_URL=https://api.deepseek.com
-MODEL=deepseek-flash
-```
-
-实际变量名称以 `config.py` 为准。
-
-不要将包含真实 API Key 的 `.env` 提交到 Git。
-
-## 5. 启动 Agent
-
-在项目根目录执行：
-
-```bash
+```powershell
+# 第二周项目
+cd week2-native-agent
 python main.py
 ```
 
-示例输入：
+或者从仓库根目录进入第四周项目：
 
-```text
-查询北京天气
-计算 10 + 5
-计算 10 / 0
+```powershell
+cd week4-langchain-agent
+python main.py
 ```
 
-注意：天气工具目前使用本地模拟数据，不代表实时天气。
-
-## 6. 运行测试
-
-在项目根目录执行：
-
-```bash
-python -m tests.test_tools
-python -m tests.test_runtime
-```
-
-## 7. Agent 执行流程
-
-```text
-User Input
-    ↓
-Agent Runtime
-    ↓
-LLM
-    ↓
-Tool Calling?
-    ├── No → Final Answer
-    └── Yes
-          ↓
-      Execute Tool
-          ↓
-      Update Step State
-          ↓
-      Return Tool Result
-          ↓
-      LLM (Next Round)
-```
-
-## 8. 当前版本限制
-
-Mini Agent V0.1 是学习项目，暂未实现：
-
-- Pydantic 参数校验
-- 完整的超时与重试机制
-- 工具权限及敏感操作审批
-- 状态持久化与断点恢复
-- 严格的任务完成条件验证
-- 生产级日志与监控
-
-这些能力将在后续课程逐步完善。
-
-## 9. 后续规划
-
-- V0.2：Function Calling 与 Tools 工程化
-- V0.3：Prompt Engineering
-- V1.0：使用 LangChain 重构个人智能助手
-
-## LangChain 购物助手 V1
-
-新增第四周练习：[购物助手使用说明](shopping-agent-v1/README.md)。包含模拟商品查价、小计与合计工具、工具异常中间件，以及基于 InMemorySaver 的连续对话。原有 Mini Agent 保留在仓库根目录。
+每个项目分别配置 `.env`；真实密钥不提交到仓库。天气和商品价格均为模拟数据，适合学习演示。
