@@ -127,3 +127,7 @@ Mini Agent V0.1 是学习项目，暂未实现：
 - V0.2：Function Calling 与 Tools 工程化
 - V0.3：Prompt Engineering
 - V1.0：使用 LangChain 重构个人智能助手
+
+## LangChain 购物助手 V1
+
+新增第四周练习：[购物助手使用说明](shopping-agent-v1/README.md)。包含模拟商品查价、小计与合计工具、工具异常中间件，以及基于 InMemorySaver 的连续对话。原有 Mini Agent 保留在仓库根目录。
